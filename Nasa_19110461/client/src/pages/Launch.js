@@ -3,9 +3,10 @@ import { Appear, Button, Loading, Paragraph } from "arwes";
 import Clickable from "../components/Clickable";
 
 const Launch = props => {
+  console.log('t', props)
   const selectorBody = useMemo(() => {
     return props.planets?.map(planet => 
-      <option value={planet.kepler_name} key={planet.kepler_name}>{planet.kepler_name}</option>
+      <option value={planet.keplerName} key={planet.keplerName}>{planet.keplerName}</option>
     );
   }, [props.planets]);
 
@@ -27,7 +28,7 @@ const Launch = props => {
       <label htmlFor="rocket-name">Rocket Type</label>
       <input type="text" id="rocket-name" name="rocket-name" defaultValue="Explorer IS1" />
       <label htmlFor="planets-selector">Destination Exoplanet</label>
-      <select id="planets-selector" name="planets-selector">
+      <select style={{color: 'black'}} id="planets-selector" name="planets-selector">
         {selectorBody}
       </select>
       <Clickable>
